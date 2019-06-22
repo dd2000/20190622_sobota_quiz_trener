@@ -17,7 +17,7 @@ public class GameTest {
     Game game;
 
     Question[] questions = {
-            new Question(null, null, null, null)
+            new Question(null, null, new String[]{}, null)
     };
 
     @Mock
@@ -57,7 +57,7 @@ public class GameTest {
         String questionText = "Czy aby napewno?";
         String[] answers = {"NIE"};
         Question question = new Question(null, questionText, answers, null);
-        when(gameInOut.getInt()).thenReturn(0);
+        when(gameInOut.getInt(answers.length)).thenReturn(0);
 
         // when
         game.askQuestion(question);
@@ -75,7 +75,7 @@ public class GameTest {
         Question question = new Question(null, questionText, answers, correctAnswer);
 
         // when
-        when(gameInOut.getInt()).thenReturn(0);
+        when(gameInOut.getInt(answers.length)).thenReturn(1);
         boolean result = game.askQuestion(question);
 
         // then
@@ -91,7 +91,7 @@ public class GameTest {
         Question question = new Question(null, questionText, answers, correctAnswer);
 
         // when
-        when(gameInOut.getInt()).thenReturn(2);
+        when(gameInOut.getInt(answers.length)).thenReturn(3);
         boolean result = game.askQuestion(question);
 
         // then
@@ -106,7 +106,7 @@ public class GameTest {
         Question question = new Question(null, questionText, answers, correctAnswer);
 
         // when
-        when(gameInOut.getInt()).thenReturn(1);
+        when(gameInOut.getInt(answers.length)).thenReturn(1);
         boolean result = game.askQuestion(question);
 
         // then

@@ -20,7 +20,7 @@ public class Game {
         gameInOut.printLine("Kategorie:");
         showCategoryList();
         gameInOut.printLine("Wprowadź numer kategorii:");
-        int selectedCategory = gameInOut.getInt(QuestionCategory.values().length);
+        int selectedCategory = gameInOut.getInt();
 
         gameInOut.printLine("wybrales " + selectedCategory);
 
@@ -49,8 +49,13 @@ public class Game {
         }
 
 
-        String selectedAnswer = answers[gameInOut.getInt(answers.length) - 1];
-        return selectedAnswer.equals(question.getCorrectAnswer());
+        try {
+            String selectedAnswer = answers[gameInOut.getInt(answers.length) - 1];
+            return selectedAnswer.equals(question.getCorrectAnswer());
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
     private void showCategoryList() {
