@@ -8,4 +8,4 @@ Popraw klase `App` by z niego korzystała (TODO).
 
 Dodatkowo:
 
-Obejrzyj klase: `GameInOut`, metoda `getInt()` została znacz nie rozbudowana, co robi ten kod? 
+Obejrzyj klase: `GameInOut`, metoda `getInt()` została znacznie rozbudowana, co robi ten kod? 
